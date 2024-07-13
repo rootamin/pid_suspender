@@ -8,7 +8,7 @@
 <form action="{% url 'stop_process' %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Stop Process</button>
+    <button type="submit">Suspend Process</button>
 </form>
 <form action="{% url 'resume_process' %}" method="post">
     {% csrf_token %}
