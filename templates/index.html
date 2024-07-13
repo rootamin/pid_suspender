@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Process Control</title>
+</head>
+<body>
+
+<form action="{% url 'stop_process' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Stop Process</button>
+</form>
+<form action="{% url 'resume_process' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Resume Process</button>
+</form><h2>Processes</h2>
+<ul>
+    {% for process in processes %}
+        <li>{{ process.name }} (PID: {{ process.pid }})</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
